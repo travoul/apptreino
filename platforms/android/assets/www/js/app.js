@@ -18,15 +18,20 @@ angular.module('starter', ['ionic','ngCordova'])
 	});
 })
 
-.controller('QRCameraController',['$scope','$cordovaBarcodeScanner',function($scope,$cordovaBarcodeScanner){
+.controller('QRCameraController',['$scope','$cordovaBarcodeScanner','$cordovaInAppBrowser',function($scope,$cordovaBarcodeScanner,$cordovaInAppBrowser){
 	$scope.click = function() {
 		//alert("Oi:"+$scope.Name);
 		//alert(JSON.stringify($scope));
 		$cordovaBarcodeScanner
 		.scan()
 		.then(function(barcodeData){
-			// Success! Barcode data is here
-			alert(barcodeData.text);
+			var options = {
+				location = "yes",
+				clearcache = "yes",
+				toolbar = "no"
+			}
+			alert("Entering:"+barcodeData.text);
+			$cordovaInAppBrowser.open(barcodeData.text,'blank',options)
 		}, function(error) {
 			// An error occurred
 			alert("Something went wrong!");

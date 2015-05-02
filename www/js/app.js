@@ -26,9 +26,9 @@ angular.module('starter', ['ionic','ngCordova'])
 		.scan()
 		.then(function(barcodeData){
 			var options = {
-				location = "yes",
-				clearcache = "yes",
-				toolbar = "no"
+				location: "yes",
+				clearcache: "yes",
+				toolbar: "no"
 			}
 			alert("Entering:"+barcodeData.text);
 			$cordovaInAppBrowser.open(barcodeData.text,'blank',options)
