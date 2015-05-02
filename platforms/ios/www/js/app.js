@@ -24,7 +24,7 @@ angular.module('starter', ['ionic','ngCordova'])
 		//alert(JSON.stringify($scope));
 		$cordovaBarcodeScanner
 		.scan()
-		.then(function(barcodeData) {
+		.then(function(barcodeData){
 			// Success! Barcode data is here
 			alert(barcodeData.text);
 		}, function(error) {
